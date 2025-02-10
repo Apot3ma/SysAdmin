@@ -2,7 +2,7 @@
 $variable1 = "Hola"
 $variable2 = "Que tal?"
 $variable3 = 100
-${var iable}= 200
+${var iable4}= 200
 
 #Imagen 2 
 New-Variable -Name variable5 -Value 300
@@ -16,7 +16,7 @@ ${var iable4}
 
 #Imagen 4
 $variable1+$variable2
-$variable3${var iable4}
+$variable3+${var iable4}
 $variable3-${var iable4}
 
 #Imagen 5
@@ -34,5 +34,4 @@ $?
 
 #Imagen 8
 $Error
-
 
