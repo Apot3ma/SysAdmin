@@ -55,3 +55,41 @@ $miObjeto | Get-Member
 #Imagen 62 
 Get-Process -Name | Stop-Process
 
+#Imagen63
+Get-Help -Full Stop-Process
+
+#Imagen 64
+Get-Help -Full Get-Process
+
+#Imagen 65 
+Get-Process
+Get-Process -Name Acrobat | Stop-Process
+
+#Imagen 66
+Get-Help -Full Get-ChildItem
+
+Get-Help -Full Get-Clipboard
+
+Get-ChildItem *.txt | Get-Clipboard
+
+#Imagen 67
+Get-Help -Full Stop-Service
+
+#Imagen 69
+Get-Service
+Get-Service Spooler | Stop-Service
+Get-Service
+
+#Imagen 70 
+Get-service 
+"Spooler"| Stop-Service
+Get-Process
+Get-Process
+
+#Imagen 71
+Get-Process
+$miObjeto = [PSCustomObject]@{
+    Name = "Spooler"
+}
+$miObjeto | Stop-Service
+
