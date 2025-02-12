@@ -33,3 +33,55 @@ try{
 }catch [System.IO.IOException]{
     Write-Output "Error de IO con el Archivo [$path]"
 }
+
+#Imagen 96 
+throw "no se puede encontrar la ruta: [$path]"
+
+throw [System.IO.FileNotFoundException] "no se puede encontrar la ruta [$path]"
+
+throw [System.IO.FileNotFoundException]::New()
+
+throw [System.IO.FileNotFoundException]::New("no se puede encontrar la ruta [$path]")
+
+throw (New-Object -TypeName System.IO.FileNotFoundException)
+
+throw (New-Object -TypeName System.IO.FileNotFoundException -ArgumentList "no se puede encontrar la ruta: [$path]")
+
+#Imagen 97
+trap{
+    Write-Output $PSItem.ToString()
+}
+throw [System.Exception]::New('primero')
+throw [System.Exception]::New('segundo')
+throw [System.Exception]::New('tercero')
+
+#Imagen 102
+ls'D:\tmp\Backups\Registro\'
+Import-Module BackupRegistry
+
+#imagen 103
+Get-Help backup-registry
+
+#Imagen 104
+backup-registry -rutaBackup 'D:\tmp\Backups\Registro\'
+ls'D:\tmp\Backups\Registro\'
+
+#Imagen 105
+vim .\Archivo8.ps14
+Import-Module BackupRegistry
+backup-registry -rutaBackup 'D:\tmp\Backups\Registro\'
+ls'D:\tmp\Backups\Registro\'
+
+#Imagen 107 
+ls'D:\tmp\Backups\Registro\'
+Get-Date
+ls'D:\tmp\Backups\Registro\'
+
+#Imagen 108
+Get-ScheduledTask
+
+#Imagen 109
+Unregister-ScheduledTask
+
+#Imagen 110 
+Get-ScheduledTask
