@@ -103,3 +103,57 @@ Get-Process -Name notep*
 
 Get-Process -Name notep*
 Get-Process -Name notepad | Wait-Process
+
+#Imagen 141
+Get-LocalUser
+
+#Imagen 142
+Get-LocalUser -SID 5-1-5-21-619942196-4045554399-1956444398-500  Select-Object *
+
+#Imagen 143 
+Get-LocalUser -Name Miguel | Select-Object *
+
+#Imagen 144
+Get-LocalGroup
+
+#Imagen145
+Get-LocalGroup -Name Administradores | Select-Object *
+
+#Imagen 146 
+Get-LocalGroup -SID 5-1-8-32-545 | Select-Object *
+
+#Imagen 147
+New-LocalUser -Name "Usuario2" -Description "Usuario de prueba 2" -Password (ConvertTo-SecureString -AsPlainText "12345" -Force)
+
+#Imagen 148
+New-LocalUser -Name "Usuario1" -Description "Usuario de prueba 1" -NoPassword
+
+#Imagen 149 
+Get-LocalUser -Name "Usuario1"
+
+Remove-LocalUser -Name "Usuario1"
+Get-LocalUser -Name "Usuario1"
+
+Get-LocalUser -Name "Usuario2"
+
+Get-LocalUser -Name "Usuario2" | Remove-LocalUser
+Get-LocalUser -Name "Usuario2"
+
+#Imagen 150
+New-LocalGroup -Name 'Group1' -Description 'Grupo de prueba 1'
+
+#Imagen 151
+Add-LocalGroupMember -Group Grupo1 -Member Usuario2 -Verbose
+
+#Imagen 152
+Get-LocalGroupMember Group1
+
+#Imagen 153
+Remove-LocalGroupMember -Group Grupo1 -Member Usuario1
+Remove-LocalGroupMember -Group Grupo1 -Member Usuario2
+Get-LocalGroupMember Group1
+
+#Imagen 154
+Get-LocalGroup -Name "Grupo1"
+Remove-LocalGroup -Name "Grupo1"
+Get-LocalGroup -Name "Grupo1"
