@@ -1,7 +1,13 @@
 ﻿#Instala el dns
 Install-WindowsFeature -Name DNS -IncludeManagementTools
 
+#peticion de datos
+
 $IpDns = Read-Host "Ingrese la ip para la zona"
+
+while ($regex -notmatch '^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'){
+    $IpDns = Read-Host "ingrese una ip valida"
+}
 
 $NombreDns = Read-Host "Ingrese el nombre para la zona"
 
