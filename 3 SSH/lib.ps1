@@ -26,9 +26,15 @@ function reiniciar-ssh {
 }
 
 function ver_ip {
-    # Obtener la dirección IP
-    $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -eq 'Ethernet' }).IPAddress
-    Write-Host "Dirección IP: $ip"
+    # Obtener todas las direcciones IPv4 activas
+    $ips = Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -notlike '169.*' -and $_.IPAddress -ne '127.0.0.1' }
+    if ($ips) {
+        foreach ($ip in $ips) {
+            Write-Host "Interfaz: $($ip.InterfaceAlias) - IP: $($ip.IPAddress)"
+        }
+    } else {
+        Write-Host "No se encontró ninguna dirección IP válida."
+    }
 }
 
 function crear_usuario {
