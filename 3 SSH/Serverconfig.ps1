@@ -1,3 +1,4 @@
+Enable-NetFirewallRule -Name FPS-ICMP4-echo-request-In
 . "$PSScriptRoot\lib.ps1"
 
 do{

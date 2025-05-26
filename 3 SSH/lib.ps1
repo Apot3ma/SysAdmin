@@ -13,9 +13,9 @@ function ver-estado-ssh {
     # Verificar el estado del servicio SSH
     $sshService = Get-Service -Name sshd
     if ($sshService.Status -eq 'Running') {
-        Write-Host "El servicio SSH está en ejecución."
+        Write-Host "El servicio SSH esta ejecucion."
     } else {
-        Write-Host "El servicio SSH no está en ejecución."
+        Write-Host "El servicio SSH no en ejecucion."
     }
 }
 
@@ -33,7 +33,7 @@ function ver_ip {
             Write-Host "Interfaz: $($ip.InterfaceAlias) - IP: $($ip.IPAddress)"
         }
     } else {
-        Write-Host "No se encontró ninguna dirección IP válida."
+        Write-Host "No se encontro ninguna direccion IP valida."
     }
 }
 
