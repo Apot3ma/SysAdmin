@@ -46,6 +46,7 @@ function crear_usuario {
     # Crear un nuevo usuario
     $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
     New-LocalUser -Name $username -Password $securePassword -FullName $username -Description "Usuario SSH"
+    Add-LocalGroupMember -Group "Administradores" -Member $username
     Write-Host "Usuario $username creado."
 }
 

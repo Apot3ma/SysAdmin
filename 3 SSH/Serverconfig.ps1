@@ -1,4 +1,3 @@
-Enable-NetFirewallRule -Name FPS-ICMP4-echo-request-In
 . "$PSScriptRoot\lib.ps1"
 
 do{
@@ -54,3 +53,5 @@ do{
 
     $op = Read-Host "Desea continuar (s/n)?"
 }while($op -eq 's' -or $op -eq 'S')
+
+
